@@ -1,0 +1,13 @@
+name: ExtraArmorScaling
+version: 1.0.0
+main: me.julius.extraarmor.ExtraArmorScalingPlugin
+api-version: '1.21'
+author: Julius
+commands:
+  extraarmor:
+    description: ExtraArmorScaling admin commands
+    usage: /extraarmor reload
+    permission: extraarmor.admin
+permissions:
+  extraarmor.admin:
+    default: op

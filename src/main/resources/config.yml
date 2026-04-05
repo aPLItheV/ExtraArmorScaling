@@ -1,0 +1,33 @@
+# ExtraArmorScaling config
+# Vanilla armor works as usual (effectively capped by the game). This plugin adds extra damage reduction
+# based on the *total* armor attribute above vanilla_armor_cap.
+#
+# extra_reduction uses diminishing returns:
+#   extraReduction = (extraArmor / (extraArmor + k)) * max_extra_reduction
+#
+# Where extraArmor = max(0, totalArmor - vanilla_armor_cap)
+
+vanilla_armor_cap: 20.0
+k: 80.0
+max_extra_reduction: 0.60
+
+# Apply only to these causes. (If list is empty, applies to all.)
+# Good defaults: physical-ish sources where armor "should" matter.
+apply_to_causes:
+  - ENTITY_ATTACK
+  - ENTITY_SWEEP_ATTACK
+  - PROJECTILE
+  - ENTITY_EXPLOSION
+  - BLOCK_EXPLOSION
+
+# Causes to never touch.
+ignore_causes:
+  - VOID
+  - SUICIDE
+  - CUSTOM
+
+# If true, also affects non-player living entities (mobs). Usually false.
+affect_mobs: false
+
+# If true, writes debug info to console when a player takes damage.
+debug: false
